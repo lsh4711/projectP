@@ -11,8 +11,10 @@ public class Test {
     public static void main(String[] args) throws IOException {
         ArrayList<String> map = MapLoader.loadMap(1);
         
-        printMap(map, character);
-        while(true) move(map, character);
+        while(true) {
+            printMap(map, character);
+            move(map, character);
+        }
 
     }
 
@@ -30,7 +32,9 @@ public class Test {
     }
 
     static void move(ArrayList<String> map, int[] xy) {
-        char m = input.nextLine().charAt(0);
+        String move = input.nextLine();
+        if(move.length() > 1) return;
+        char m = move.charAt(0);
         int[][] udlr = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         int idx = 0;
 
@@ -38,11 +42,10 @@ public class Test {
         else if(m == 's') idx = 1;
         else if(m == 'a') idx = 2;
         else if(m == 'd') idx = 3;
+        else return;
         int[] next = new int[] {xy[0] + udlr[idx][0], xy[1] + udlr[idx][1]};
-        if(next[0] >= 0 && next[1] >= 0 && next[0] < map.size() && next[1] < map.get(next[0]).length()) {
-            xy[0] = next[0];
-            xy[1] = next[1];
-        }
-        printMap(map, xy);
+        if(next[0] < 0 || next[1] < 0 || next[0] >= map.size() || next[1] >= map.get(next[0]).length()) return;
+        xy[0] = next[0];
+        xy[1] = next[1];
     }
 }
