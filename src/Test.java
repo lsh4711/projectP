@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import map.MapLoader;
-import map.mapLoader;
 
 public class Test {
     static Scanner input = new Scanner(System.in);
