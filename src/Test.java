@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ import map.MapLoader;
 public class Test {
     static int[] character = {0, 0}; // 캐릭터 좌표
     static StringBuilder mapPrinter; // 맵 출력 클래스
-    static Scanner input = new Scanner(System.in); // 입력 클래스
+    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in)); // 입력 클래스
 
     public static void main(String[] args) throws IOException {
         ArrayList<String> map = MapLoader.loadMap(1); // 1번 맵 로딩
@@ -32,12 +34,13 @@ public class Test {
             }
             mapPrinter.append('\n');
         }
+        mapPrinter.append(TextColor.RESET);
         System.out.print(mapPrinter);
     }
 
-    static void move(ArrayList<String> map, int[] xy) {
+    static void move(ArrayList<String> map, int[] xy) throws IOException {
         System.out.print("[입력] ex) w, s, a, d\n>");
-        String move = input.nextLine();
+        String move = input.readLine();
         if(move.length() == 0 || move.length() > 1) return;
         int idx = 0;
         char m = move.charAt(0);
