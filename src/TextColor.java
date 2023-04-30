@@ -15,7 +15,11 @@ public enum TextColor {
 	BACKGROUND_BLUE("\u001B[44m"),
 	BACKGROUND_PURPLE("\u001B[45m"),
 	BACKGROUND_CYAN("\u001B[46m"),
-	BACKGROUND_WHITE("\u001B[47m");
+	BACKGROUND_WHITE("\u001B[47m"),
+	// 오브젝트 별 사전 색 지정
+	CHARACTER("\u001B[32m@"),
+	ROAD("\u001B[37m■"),
+	BLOCK("\u001B[34m■");
 
     private String color;
 

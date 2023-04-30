@@ -8,7 +8,7 @@ public class MapLoader {
 
     public static ArrayList<String> loadMap(int mapNum) throws IOException {
         ArrayList<String> map = new ArrayList<>();
-        String path = "C:/project/game/src/map/maps/map" + mapNum;
+        String path = "C:/project/projectP/src/map/maps/map" + mapNum;
         BufferedReader br = new BufferedReader(new FileReader(path));
 
         while(true) {
